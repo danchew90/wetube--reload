@@ -1,0 +1,21 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "the best way to watch videos",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danchew90/wetube--reload.git"
+  },
+  "scripts": {
+    "win": "node index.js"
+  },
+  "author": "Jongwon Shin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danchew90/wetube--reload/issues"
+  },
+  "homepage": "https://github.com/danchew90/wetube--reload#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
