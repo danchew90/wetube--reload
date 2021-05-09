@@ -17,5 +17,9 @@
   "homepage": "https://github.com/danchew90/wetube--reload#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.1"
   }
 }
