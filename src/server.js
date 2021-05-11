@@ -9,26 +9,13 @@ const logger = (req,res,next ) => {
     next();
 }
 
-const privateMiddleware = (req,res,next) =>{
-    const url = req.url;
-    if(url === "/protecte"){
-        return res.send("<h1>Not Allowed</h1>")
-    }
-    console.log("Allowed, you may continue.");
-    next();
-}
-
 const handleHome = (req,res) =>{
     return res.send("I love middlewares💕");
 }
-const handleProtected = (req,res) =>{
-    return res.send("Welcom to the private lounge.");
-}
 
 app.use(logger);
-app.use(privateMiddleware);
 app.get("/",handleHome);
-app.get("/protecte",handleProtected);
+
 
  
 const handleListening = () => console.log(`✅ Server listening on port http://localhost:${PORT} 🚀`);
