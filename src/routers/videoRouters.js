@@ -1,9 +1,12 @@
 import express from "express" ; 
+import {watch,edit} from "../controllers/videoController";
+
 
  const viedoRouter = express.Router(); 
 
- const handleWatchVideo = (req,res) => res.send("Watch Video");
 
- viedoRouter.get("/watch",handleWatchVideo);
+
+ viedoRouter.get("/watch",watch);
+ viedoRouter.get("/edit",edit);
 
 export default viedoRouter;

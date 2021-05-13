@@ -1,8 +1,8 @@
 import express from "express";
 import morgan from "morgan";
 import globalRouter from "./routers/globalRouters";
-import userRouter from "./routers/userRouters";
 import viedoRouter from "./routers/videoRouters";
+import userRouter from "./routers/userRouters";
 
 const PORT = 4000;
 
