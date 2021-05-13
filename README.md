@@ -1,7 +1,8 @@
 # wetube 
 
 / -> Home
-/join -> Login
+/login -> Login
+/join -> Join
 /search -> Search
 
 
