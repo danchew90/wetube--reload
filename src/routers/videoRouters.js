@@ -1,12 +1,11 @@
-import express from "express" ; 
-import {watch,edit} from "../controllers/videoController";
+import express from "express";
+import { see, edit, deleteVideo, upload } from "../controllers/videoController";
 
+const viedoRouter = express.Router();
 
- const viedoRouter = express.Router(); 
-
-
-
- viedoRouter.get("/watch",watch);
- viedoRouter.get("/edit",edit);
+viedoRouter.get("/upload", upload);
+viedoRouter.get("/:id", see);
+viedoRouter.get("/:id/edit", edit);
+viedoRouter.get("/:id/delete", deleteVideo);
 
 export default viedoRouter;

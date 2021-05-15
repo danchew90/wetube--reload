@@ -1,16 +1,17 @@
 # wetube 
 
 / -> Home
-/login -> Login
 /join -> Join
+/login -> Login
 /search -> Search
 
 
-/users/edit -> Edit User
-/users/delete -> Delete User
+/users/:id -> See User
+/users/logout -> Log Out 
+/users/edit -> Edit My Profile
+/users/delete -> Delete My Profile
 
-/video/watch -> Watch Video
-/video/edit -> edit-video
-/video/delete -> Delete Video
-/videos/comments -> comment on a video
-/vidoes/comments/delete -> Delete a comment of a video
+/videos/:id -> See Video
+/videos/:id/ edit -> Edit Video
+/videos/:id/delete -> Delete Video
+/videos/uploat -> Upload Video
