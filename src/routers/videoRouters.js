@@ -3,9 +3,9 @@ import { see, edit, deleteVideo, upload } from "../controllers/videoController";
 
 const viedoRouter = express.Router();
 
+viedoRouter.get("/:id(\\d+)", see);
+viedoRouter.get("/:id(\\d+)/edit", edit);
+viedoRouter.get("/:id(\\d+)/delete", deleteVideo);
 viedoRouter.get("/upload", upload);
-viedoRouter.get("/:id", see);
-viedoRouter.get("/:id/edit", edit);
-viedoRouter.get("/:id/delete", deleteVideo);
 
 export default viedoRouter;
