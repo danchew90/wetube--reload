@@ -10,7 +10,6 @@ import {
 const viedoRouter = express.Router();
 
 viedoRouter.get("/:id(\\d+)", watch);
-viedoRouter.get("/:id(\\d+)/edit", getEdit);
-viedoRouter.post("/:id(\\d+)/edit", postEdit);
+viedoRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
 
 export default viedoRouter;
