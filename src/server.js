@@ -1,12 +1,8 @@
-import "./db";
-import "./models/video";
 import express from "express";
 import morgan from "morgan";
 import globalRouter from "./routers/globalRouters";
 import viedoRouter from "./routers/videoRouters";
 import userRouter from "./routers/userRouters";
-
-const PORT = 4000;
 
 const app = express();
 const logger = morgan("dev");
@@ -28,7 +24,4 @@ const login = (req, res) => {
   return res.send("login");
 };
 
-const handleListening = () =>
-  console.log(`✅ Server listening on port http://localhost:${PORT} 🚀`);
-
-app.listen(PORT, handleListening);
+export default app;
