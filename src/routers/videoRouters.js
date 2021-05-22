@@ -9,8 +9,8 @@ import {
 
 const viedoRouter = express.Router();
 
-viedoRouter.get("/:id(\\d+)", watch);
-viedoRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
+viedoRouter.get("/:id([0-9a-f]{24})", watch);
+viedoRouter.route("/:id([0-9a-f]{24})/edit").get(getEdit).post(postEdit);
 viedoRouter.route("/upload").get(getUpload).post(postUpload);
 
 export default viedoRouter;
