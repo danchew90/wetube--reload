@@ -68,6 +68,7 @@ export const deleteVideo = async (req, res) => {
 
 export const search = async (req, res) => {
   const { keyword } = req.query;
+  console.log(req.query);
   let videos = [];
   if (keyword) {
     videos = await Video.find({

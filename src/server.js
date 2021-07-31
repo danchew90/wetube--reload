@@ -7,6 +7,13 @@ import userRouter from "./routers/userRouters";
 const app = express();
 const logger = morgan("dev");
 
+// app.use((req, res, next) => {
+//   if (req.url == "/") {
+//     return res.end();
+//   }
+//   next();
+// });
+
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
 app.use(logger);
