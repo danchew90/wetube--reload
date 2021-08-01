@@ -1,5 +1,5 @@
 import { format } from "morgan";
-// import Video from "../models/video";
+import Video from "../models/video";
 
 // Video.find({}, (error, videos) => {});
 
