@@ -137,20 +137,54 @@ export const getEdit = (req, res) => {
   return res.render("edit-profile", { pageTitle: "Edit Profile" });
 };
 export const postEdit = async (req, res) => {
-  // const { name, email, username, location } = req.body;
-  // const id = req.session.user.id; 이건 밑의 것과 동일한 것이다.
   const {
     session: {
       user: { _id },
     },
     body: { name, email, username, location },
   } = req;
-  await User.findByIdAndUpdate(_id, {
-    name,
-    email,
-    username,
-    location,
-  });
-  return res.render("edit-profile");
+
+  const userId = await User.findById({ _id });
+  const findUsername = await User.exists({ username });
+  const findEmail = await User.exists({ email });
+
+  if (userId.username != username) {
+    if (findUsername) {
+      return res.render("edit-profile", {
+        pageTitle: "Edit Profile",
+        errorMessage: "This username that already exists.",
+      });
+    }
+  }
+  if (userId.email != email) {
+    if (findEmail) {
+      return res.render("edit-profile", {
+        pageTitle: "Edit Profile",
+        errorMessage: "This email that already exists.",
+      });
+    }
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      name,
+      email,
+      username,
+      location,
+    },
+    { new: true }
+  );
+  req.session.user = updatedUser;
+
+  return res.redirect("/users/edit");
 };
 export const see = (req, res) => res.send("See User");
+
+// req.session.user = {
+//   ...req.session.user,
+//   name,
+//   email,
+//   username,
+//   location,
+// };
