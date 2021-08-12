@@ -32,7 +32,8 @@ app.use(
 );
 
 app.use(localsMiddleware);
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("uploads")); //static은 정적인 파일
+app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/videos", viedoRouter);
 app.use("/users", userRouter);
