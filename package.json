@@ -7,7 +7,8 @@
     "url": "git+https://github.com/danchew90/wetube--reload.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js"
+    "dev": "nodemon --exec babel-node src/init.js",
+    "assets": "webpack --config webpack.config.js"
   },
   "author": "Jongwon Shin",
   "license": "MIT",
@@ -31,6 +32,8 @@
     "@babel/core": "^7.14.0",
     "@babel/node": "^7.13.13",
     "@babel/preset-env": "^7.14.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.7.2"
   }
 }
