@@ -119,3 +119,6 @@ dist
 package-lock.json
 .env
 /uploads
+/assets/*
+src/client/js/main.js
+assets/js/main.js
