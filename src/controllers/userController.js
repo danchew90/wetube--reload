@@ -147,7 +147,6 @@ export const postEdit = async (req, res) => {
   const userId = await User.findById({ _id });
   const findUsername = await User.exists({ username });
   const findEmail = await User.exists({ email });
-  console.log(file);
   if (userId.username != username) {
     if (findUsername) {
       return res.render("edit-profile", {
