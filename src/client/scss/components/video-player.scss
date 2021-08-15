@@ -1,0 +1,41 @@
+#videoContainer {
+  width: 100%;
+  position: relative;
+  video {
+    width: 100%;
+  }
+  .videoControls {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    &.showing {
+      opacity: 1;
+    }
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    border-radius: 10px;
+    .videoControls__play {
+      display: flex;
+      .videoControls__playBtn {
+        margin-right: 10px;
+      }
+      .videoControls__time {
+        font-size: 70%;
+      }
+    }
+    .videoControls__timeline {
+      width: 69%;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
