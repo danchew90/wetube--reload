@@ -48,12 +48,12 @@ const handleVolumeChange = (event) => {
   } = event;
   if (video.muted) {
     video.muted = false;
-    muteBtnIcon.classList = "fas fa-volume-up";
-  } else {
-    video.muted = true;
+    video.volume = value;
     muteBtnIcon.classList = "fas fa-volume-mute";
   }
-  volumeValue = value;
+  muteBtnIcon.classList =
+    parseFloat(value) === 0 ? "fas fa-volume-mute" : "fas fa-volume-up";
+  volumnValue = value;
   video.volume = value;
 };
 

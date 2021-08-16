@@ -37,5 +37,21 @@
         outline: none;
       }
     }
+    .videoControls__mute {
+      position: relative;
+      width: 5%;
+      text-align: center;
+      .videoControls__mute-input {
+        display: none;
+        position: absolute;
+        width: 90px;
+        top: -350%;
+        left: -30%;
+        transform: rotateZ(-90deg);
+      }
+      &:hover > .videoControls__mute-input {
+        display: block;
+      }
+    }
   }
 }
