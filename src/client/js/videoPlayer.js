@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
 const playBtnIcon = playBtn.querySelector("i");
@@ -104,17 +106,28 @@ const handleMouseMove = () => {
 const handleMouseLeave = () => {
   controlsTimeout = setTimeout(hideControls, 3000);
 };
-const handleSpaceKeydown = (e) => {
+
+const handleKeydown = (e) => {
   const { code } = e;
+  if (code == "KeyF") {
+    videoContainer.requestFullscreen();
+    fullScreenBtnIcon.classList = "fas fa-compress";
+  } else if (code == "Escape") {
+    document.exitFullscreen();
+    fullScreenBtnIcon.classList = "fas fa-expand";
+  }
   if (code == "Space") {
     handlePlayClick();
   }
 };
-const handleFullscreenKeyF = (e) => {
-  const { code } = e;
-  if (code == "KeyF") {
-    handleFullscreen();
-  }
+
+const handleEnded = () => {
+  const {
+    dataset: { id },
+  } = videoContainer;
+  fetch(`/api/videos/${id}/view`, {
+    method: "POST",
+  });
 };
 
 playBtn.addEventListener("click", handlePlayClick);
@@ -122,10 +135,10 @@ muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
+video.addEventListener("click", handlePlayClick);
+video.addEventListener("ended", handleEnded);
 timeLine.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullscreen);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
-video.addEventListener("click", handlePlayClick);
-window.addEventListener("keypress", handleSpaceKeydown);
-window.addEventListener("keydown", handleFullscreenKeyF);
+window.addEventListener("keydown", handleKeydown);
