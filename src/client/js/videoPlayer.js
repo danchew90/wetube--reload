@@ -122,14 +122,11 @@ const handleKeydown = (e) => {
 };
 
 const handleEnded = () => {
-  const {
-    dataset: { id },
-  } = videoContainer;
+  const { id } = videoContainer.dataset;
   fetch(`/api/videos/${id}/view`, {
     method: "POST",
   });
 };
-
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
